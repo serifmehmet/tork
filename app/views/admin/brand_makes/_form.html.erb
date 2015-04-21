@@ -1,0 +1,30 @@
+<div class="control-group">
+   <!-- <label class="control-label" for="input1">Adı</label> -->
+   <div class="controls">
+      <%= f.association :brand,label_method: :brand_name, value_method: :id, input_html: { class: "span6", id: "input1"}, label: "Marka Adı" %>
+   </div>
+</div>
+
+<div class="control-group">
+   <!-- <label class="control-label" for="input1">Adı</label> -->
+   <div class="controls">
+      <%= f.input :make_name, input_html: { class: "span6", id: "input2"}, label: "Model Adı" %>
+   </div>
+</div>
+<div class="control-group">
+   <!-- <label class="control-label" for="input2">Soyadı</label> -->
+   <div class="controls">
+      <%= f.input :meta_keywords, input_html: { class: "span6", id: "input3"}, label: "Anahtar Kelimeler" %>
+   </div>
+</div>
+
+
+<div class="form-actions">
+  <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+     Kaydet
+  <% end %>
+   
+  <%= link_to "Geri Dön", { action: "index" }, :class => "btn btn-warning" %>
+   <!-- <button type="button" class="btn">Cancel</button> -->
+</div>
+

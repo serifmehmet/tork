@@ -9,8 +9,12 @@
 //
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
-//
-//= require jquery
+//= require_tree ./admin/jquery
+//= require_tree ./admin/uniform
+
+
+//= require_tree ./admin
 //= require jquery_ujs
-//= require turbolinks
-//= require_tree .
+//= require_self
+
+

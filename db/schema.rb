@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150413140924) do
+ActiveRecord::Schema.define(version: 20150418205207) do
 
   create_table "brand_makes", force: :cascade do |t|
     t.integer  "brand_id",         limit: 4
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20150413140924) do
     t.text     "make_description", limit: 65535
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
+    t.string   "meta_keywords",    limit: 100
   end
 
   add_index "brand_makes", ["make_name"], name: "index_brand_makes_on_make_name", using: :btree
@@ -28,6 +29,7 @@ ActiveRecord::Schema.define(version: 20150413140924) do
     t.text     "brand_description", limit: 65535
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
+    t.string   "meta_keywords",     limit: 100
   end
 
   add_index "brands", ["brand_name"], name: "index_brands_on_brand_name", using: :btree
@@ -37,6 +39,7 @@ ActiveRecord::Schema.define(version: 20150413140924) do
     t.string   "make_type_name", limit: 255
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.string   "meta_keywords",  limit: 100
   end
 
   create_table "pages", force: :cascade do |t|

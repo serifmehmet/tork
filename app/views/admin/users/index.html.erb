@@ -1,0 +1,83 @@
+<div class="container-fluid">
+				<!-- BEGIN PAGE HEADER-->
+				<div class="row-fluid">
+					<div class="span12">
+						<!-- BEGIN STYLE CUSTOMIZER-->
+						
+						<!-- END STYLE CUSTOMIZER-->    
+						<!-- BEGIN PAGE TITLE & BREADCRUMB-->		
+						<h3 class="page-title">
+							Kullanıcı Listesi
+							
+						</h3>
+						
+						<!-- END PAGE TITLE & BREADCRUMB-->
+					</div>
+				</div>
+				<!-- END PAGE HEADER-->
+				<!-- BEGIN PAGE CONTENT-->
+
+
+				<div id="page" class="dashboard">
+					<div class="row-fluid">
+						<div class="span12">
+							<!-- BEGIN EXAMPLE TABLE PORTLET-->
+							<div class="widget">
+								<div class="widget-title">
+									<h4><i class="icon-reorder"></i>Kullanıcılar</h4>
+									<span class="tools">
+									
+									</span>							
+								</div>
+								<div class="widget-body">
+									<%= link_to "Yeni Kullanıcı", { action: "new" }, :class => "btn btn-warning add-button" %>
+									
+									<br />
+									<table class="table table-striped table-bordered" id="sample_1">
+										<thead>
+											<tr>
+												<th style="width:8px"><input type="checkbox" class="group-checkable" data-set=".checkboxes" /></th>
+												<th>Kullanıcı Adı</th>
+												<th class="hidden-phone">Ad - Soyad</th>
+												<th class="hidden-phone">E-Posta</th>
+												<th class="hidden-phone">Address</th>
+												<th class="hidden-phone">Admin?</th>
+												<!-- <th></th> -->
+											</tr>
+										</thead>
+										<tbody>
+											<!-- Kullanıcılar Listesini alıyoruz -->
+											<% @user_list.each do |user| %>
+												<tr class="odd gradeX">
+													<td><input type="checkbox" class="checkboxes" value="1" /></td>
+													<td class="hidden-phone"><%= user.username %></td>
+													<td class="hidden-phone"><%= user.full_name %></td>
+													<td class="hidden-phone"><%= user.email %></td>
+													<td class="hidden-phone center"><%= user.address %></td>
+													<td class="hidden-phone">
+														<% if user.is_admin? %>
+														 <span class="label label-success">Evet</span>
+														<% else %>
+															<span class="label label-warning">Hayır</span>
+														<% end %>
+													</td>
+													<!-- <td class="center">
+														<a href="#" class="icon huge"><i class="icon-zoom-in"></i></a>&nbsp;	
+														<a href="#" class="icon huge"><i class="icon-pencil"></i></a>&nbsp;
+														<a href="#" class="icon huge"><i class="icon-remove"></i></a>&nbsp;		
+													</td> -->
+												</tr>
+											<% end %>
+											<!-- Kullanıcılar listesi alındı -->
+											
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<!-- END EXAMPLE TABLE PORTLET-->
+						</div>
+					</div>
+					
+				</div>
+				<!-- END PAGE CONTENT-->
+			</div>

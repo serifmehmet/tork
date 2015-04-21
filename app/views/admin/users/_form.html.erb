@@ -1,0 +1,36 @@
+<div class="control-group">
+   <!-- <label class="control-label" for="input1">Adı</label> -->
+   <div class="controls">
+      <%= f.input :first_name, input_html: { class: "span6", id: "input1"}, label: "Adı" %>
+   </div>
+</div>
+<div class="control-group">
+   <!-- <label class="control-label" for="input2">Soyadı</label> -->
+   <div class="controls">
+      <%= f.input :last_name, input_html: { class: "span6", id: "input2"}, label: "Soyadı" %>
+   </div>
+</div>
+<div class="control-group">
+   <!-- <label class="control-label" for="inputRemarks">Adres</label> -->
+   <div class="controls">
+      <%= f.input :address, input_html: { class: "span6", id: "inputRemarks", rows: "3"}, as: :text, label: "Adres" %>
+      
+   </div>
+</div>
+<div class="control-group">
+   <label class="control-label" for="input7">E-Posta Adresi</label>
+   <div class="controls">
+      <div class="input-prepend">
+         <span class="add-on">@</span><%= f.input :email, input_html: { class: "input-medium", id: "input3"}, label: false, placeholder: "E-Posta Adresi", wrapper: false %>
+         
+      </div>
+   </div>
+</div>
+<div class="control-group">
+   <label class="control-label" >Admin?</label>
+   <div class="controls">
+      <label class="checkbox">
+      <%= f.input :is_admin, label: false %>
+      </label>
+   </div>
+</div>                             

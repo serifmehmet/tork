@@ -1,0 +1,28 @@
+<%= simple_form_for resource, as: resource_name, url: session_path(resource_name), :method => :POST, class: "fform-vertical no-padding no-margin", id: "loginform" do |f| %>
+
+    	<p class="center">Yönetim Paneline Giriş Yapınız!</p>
+      <div class="control-group">
+        <div class="controls">
+          <div class="input-prepend">
+            <span class="add-on"><i class="fa fa-user fa-fw"></i></span>
+            <%= f.input :username, placeholder: "Kullanıcı Adı", id: "input-username", label: false, wrapper: false %>
+            
+          </div>
+        </div>
+      </div>
+      <div class="control-group">
+        <div class="controls">
+          <div class="input-prepend">
+            <span class="add-on"><i class="fa fa-lock fa-fw"></i></span>
+            <%= f.input :password, placeholder: "Şifre", id: "input-password", label: false, wrapper: false %>
+            
+          </div>
+          <div class="clearfix space5"></div>
+        </div>
+      </div>
+      <%= button_tag(type: 'submit', class: "btn btn-block btn-inverse", id: "login-btn") do %>
+		     Giriş
+		  <% end %>
+      
+
+    <% end %>

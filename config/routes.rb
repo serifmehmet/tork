@@ -3,7 +3,7 @@ Rails.application.routes.draw do
  
   devise_for :users
   devise_scope :user do 
-    #get 'admin/login', :to => "devise/sessions#new", as: :login
+    # get 'admin/login', :to => "devise/sessions#new", as: :login
     get 'admin/logout', :to => "devise/sessions#destroy", as: :logout
     post "admin/add_user" =>"admin/user#create", as: :adduser
   end

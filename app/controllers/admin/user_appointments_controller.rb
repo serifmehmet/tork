@@ -1,5 +1,5 @@
 class Admin::UserAppointmentsController < ApplicationController
-
+  before_action :authenticate_user!, :is_admin_control!
 	layout "admin/admin"
   def index
   	@user_appointments = UserAppointment.sorted

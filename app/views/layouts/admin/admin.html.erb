@@ -51,7 +51,11 @@
 							</a>
 							<ul class="dropdown-menu">
 								<li class="divider"></li>
-								<li><i class="fa fa-key fa-fw"></i><%= current_user.full_name %></li>
+								<li><i class="fa fa-key fa-fw"></i>
+									<% if user_signed_in? %> 
+										<%= current_user.full_name %> 
+									<% end %>
+								</li>
 								<li>
 									<%= link_to logout_path do %>
 									<i class="fa fa-key fa-fw"></i> Çıkış

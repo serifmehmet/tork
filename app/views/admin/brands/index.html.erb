@@ -52,7 +52,7 @@
 													<td class="hidden-phone"><%= brand.brand_name %></td>
 													<td class="hidden-phone"><%= brand.meta_keywords %></td>
 													<td class="center">
-														<%= link_to admin_edit_brand_path(brand.id), :class => 'icon huge' do %>
+														<%= link_to edit_admin_brand_path(brand.id), :class => 'icon huge' do %>
 															<i class="fa fa-pencil fa-fw"></i>
 														<% end %>
 														<%= link_to admin_delete_brand_path(brand.id), :class => 'icon huge' do %>

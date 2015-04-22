@@ -3,5 +3,16 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  def is_admin_control!
+  	
+  	user = current_user
+
+  	if user.is_admin?
+  		sign_in(user, store: false)
+
+  	else
+  		redirect_to(:controller => "admin", :action => "login")
+  	end
+  end
   
 end

@@ -25,7 +25,7 @@
             </div>
             <div class="widget-body form">
                <!-- BEGIN FORM-->
-               <%= simple_form_for @brand_make, url: admin_create_brand_make_path, class: "form-horizontal" do |f| %>
+               <%= simple_form_for @brand_make, url: admin_brand_makes_path, class: "form-horizontal" do |f| %>
 
                   <%= render(:partial => "form", :locals => {:f => f}) %>
 

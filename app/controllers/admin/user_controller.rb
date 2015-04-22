@@ -1,4 +1,5 @@
 class Admin::UserController < Devise::RegistrationsController
+  prepend_before_filter :require_no_authentication, only: [:new, :cancel]
  
   # def new
   #   build_resource({})

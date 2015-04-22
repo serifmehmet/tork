@@ -51,7 +51,12 @@
 							</a>
 							<ul class="dropdown-menu">
 								<li class="divider"></li>
-								<li><a href="login.html"><i class="fa fa-key fa-fw"></i> Log Out</a></li>
+								<li><i class="fa fa-key fa-fw"></i><%= current_user.full_name %></li>
+								<li>
+									<%= link_to logout_path do %>
+									<i class="fa fa-key fa-fw"></i> Çıkış
+									<% end %>
+								</li>
 							</ul>
 						</li>
 						<!-- END USER LOGIN DROPDOWN -->

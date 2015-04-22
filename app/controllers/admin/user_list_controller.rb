@@ -1,6 +1,7 @@
 class Admin::UserListController < ApplicationController
 
-  before_action :authenticate_user!
+  before_action :authenticate_user!, :is_admin_control!
+  
 	layout 'admin/admin'
   def index
   	@user_list = User.all

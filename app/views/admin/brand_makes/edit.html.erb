@@ -25,7 +25,7 @@
             </div>
             <div class="widget-body form">
                <!-- BEGIN FORM-->
-               <%= simple_form_for @brand_make, url: admin_update_brand_make_path(@brand_make.id), :method => :POST, class: "form-horizontal" do |f| %>
+               <%= simple_form_for @brand_make, url: admin_brand_make_path(@brand_make.id), class: "form-horizontal" do |f| %>
 
                   <%= render(:partial => "form", :locals => {:f => f}) %>
 

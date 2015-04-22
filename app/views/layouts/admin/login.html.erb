@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if IE 10]> <html lang="en" class="ie10"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+	<meta charset="utf-8" />
+	<title>Tork Garage Yönetim Paneli</title>
+	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+	<meta content="" name="description" />
+	<meta content="" name="author" />
+	<%= stylesheet_link_tag "admin/admin" %>
+	
+</head>
+<!-- END HEAD -->
+<!-- BEGIN BODY -->
+<body>
+	<div id="logo" class="center">
+    <%= image_tag "admin/logo.png" %>
+  </div>
+	<div id="login">
+    <!-- BEGIN LOGIN FORM -->
+    <%= simple_form_for resource, as: resource_name, url: session_path(resource_name), :method => :POST, class: "fform-vertical no-padding no-margin", id: "loginform" do |f| %>
+
+    	<p class="center">Yönetim Paneline Giriş Yapınız!</p>
+      <div class="control-group">
+        <div class="controls">
+          <div class="input-prepend">
+            <span class="add-on"><i class="fa fa-user fa-fw"></i></span>
+            <%= f.input :username, placeholder: "Kullanıcı Adı", id: "input-username", label: false, wrapper: false %>
+            
+          </div>
+        </div>
+      </div>
+      <div class="control-group">
+        <div class="controls">
+          <div class="input-prepend">
+            <span class="add-on"><i class="fa fa-lock fa-fw"></i></span>
+            <%= f.input :password, placeholder: "Şifre", id: "input-password", label: false, wrapper: false %>
+            
+          </div>
+          <div class="clearfix space5"></div>
+        </div>
+      </div>
+      <%= button_tag(type: 'submit', class: "btn btn-block btn-inverse", id: "login-btn") do %>
+		     Giriş
+		  <% end %>
+      
+
+    <% end %>
+    
+    
+  </div>
+	<!-- Load javascripts at bottom, this will reduce page load time -->
+	<%= javascript_include_tag "application" %>
+	<script>
+    jQuery(document).ready(function() {     
+      App.initLogin();
+    });
+  </script>
+	<!-- END JAVASCRIPTS -->
+</body>
+<!-- END BODY -->
+</html>

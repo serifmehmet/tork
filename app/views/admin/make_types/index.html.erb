@@ -7,7 +7,7 @@
 						<!-- END STYLE CUSTOMIZER-->    
 						<!-- BEGIN PAGE TITLE & BREADCRUMB-->		
 						<h3 class="page-title">
-							Model Listesi
+							Motor Tipi Listesi
 							
 						</h3>
 						
@@ -24,7 +24,7 @@
 							<!-- BEGIN EXAMPLE TABLE PORTLET-->
 							<div class="widget">
 								<div class="widget-title">
-									<h4><i class="icon-reorder"></i>Modeller</h4>
+									<h4><i class="icon-reorder"></i>Motor Tipleri</h4>
 									<span class="tools">
 									
 									</span>							
@@ -53,7 +53,7 @@
 													<td class="hidden-phone"><%= make_type.brand_make.make_name %></td>
 													<td class="hidden-phone"><%= make_type.meta_keywords %></td>
 													<td class="center">
-														<%= link_to admin_edit_make_type_path(make_type.id), :class => 'icon huge' do %>
+														<%= link_to edit_admin_make_type_path(make_type.id), :class => 'icon huge' do %>
 															<i class="fa fa-pencil fa-fw"></i>
 														<% end %>
 														<%= link_to admin_delete_make_type_path(make_type.id), :class => 'icon huge' do %>

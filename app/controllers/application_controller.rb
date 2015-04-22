@@ -16,6 +16,10 @@ class ApplicationController < ActionController::Base
   	end
   end
 
+  def auth_user!
+    redirect_to admin_login_url unless user_signed_in?
+  end
+
   protected
     def after_sign_in_path_for(resource)
       user = current_user
@@ -25,6 +29,14 @@ class ApplicationController < ActionController::Base
       else
         # Eğer kullanıcı normal ise routes-> root adresine gidecek TO-DO
         return admin_root_url 
+      end
+    end
+
+    def after_sign_out_path_for(resource_or_scope)
+      if params[:controller] = "admin"
+        return admin_login_url
+      else
+        return "http://www.google.com"
       end
     end
   

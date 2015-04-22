@@ -1,5 +1,5 @@
 class Admin::BrandsController < ApplicationController
-  before_action :authenticate_user!, :is_admin_control!
+  before_action :auth_user!, :is_admin_control!
   
 	layout "admin/admin"
   def index

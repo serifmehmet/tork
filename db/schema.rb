@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150418205207) do
+ActiveRecord::Schema.define(version: 20150423181410) do
 
   create_table "brand_makes", force: :cascade do |t|
     t.integer  "brand_id",         limit: 4
@@ -56,16 +56,16 @@ ActiveRecord::Schema.define(version: 20150418205207) do
   add_index "pages", ["page_name"], name: "index_pages_on_page_name", using: :btree
 
   create_table "user_appointments", force: :cascade do |t|
-    t.string   "first_name",    limit: 20,  null: false
-    t.string   "last_name",     limit: 20,  null: false
-    t.string   "email",         limit: 50,  null: false
-    t.string   "address",       limit: 100, null: false
-    t.string   "phone_number",  limit: 255, null: false
-    t.string   "make_year",     limit: 255
-    t.integer  "brand_id",      limit: 4,   null: false
-    t.integer  "brand_make_id", limit: 4,   null: false
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.string   "first_name",     limit: 20,    null: false
+    t.string   "last_name",      limit: 20,    null: false
+    t.string   "email",          limit: 50,    null: false
+    t.string   "address",        limit: 100,   null: false
+    t.string   "phone_number",   limit: 255,   null: false
+    t.integer  "brand_id",       limit: 4,     null: false
+    t.integer  "brand_make_id",  limit: 4,     null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.text     "care_operation", limit: 65535, null: false
   end
 
   create_table "user_comments", force: :cascade do |t|
@@ -76,31 +76,33 @@ ActiveRecord::Schema.define(version: 20150418205207) do
     t.datetime "updated_at",                 null: false
   end
 
+  create_table "user_operations", force: :cascade do |t|
+    t.integer  "user_id",               limit: 4
+    t.integer  "user_proposal_form_id", limit: 4
+    t.text     "op_status",             limit: 65535
+    t.boolean  "op_is_closed",          limit: 1
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
+
   create_table "user_proposal_forms", force: :cascade do |t|
     t.string   "form_no",           limit: 255
     t.string   "vehicle_info",      limit: 255
     t.string   "vehicle_situation", limit: 255
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
-    t.string   "email",             limit: 255, null: false
-    t.string   "first_name",        limit: 255, null: false
-    t.string   "last_name",         limit: 255, null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.string   "email",             limit: 255,   null: false
+    t.string   "first_name",        limit: 255,   null: false
+    t.string   "last_name",         limit: 255,   null: false
+    t.integer  "brand_id",          limit: 4
+    t.integer  "brand_make_id",     limit: 4
+    t.string   "phone_number",      limit: 20,    null: false
+    t.text     "care_operation",    limit: 65535
+    t.string   "given_cost",        limit: 20
+    t.boolean  "is_accepted",       limit: 1
   end
 
   add_index "user_proposal_forms", ["form_no"], name: "index_user_proposal_forms_on_form_no", using: :btree
-
-  create_table "user_taken_services", force: :cascade do |t|
-    t.integer  "user_id",      limit: 4
-    t.string   "report_no",    limit: 10,    null: false
-    t.text     "vehicle_info", limit: 65535
-    t.float    "cost",         limit: 24
-    t.text     "situation",    limit: 65535
-    t.text     "comment",      limit: 65535
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-  end
-
-  add_index "user_taken_services", ["report_no"], name: "index_user_taken_services_on_report_no", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name",             limit: 30

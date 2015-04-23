@@ -1,2 +1,47 @@
-<h1>Admin::UserAppointments#delete</h1>
-<p>Find me in app/views/admin/user_appointments/delete.html.erb</p>
+<div class="container-fluid">
+  <div class="row-fluid">
+          <div class="span12">
+            <!-- BEGIN STYLE CUSTOMIZER-->
+            
+            <!-- END STYLE CUSTOMIZER-->    
+            <!-- BEGIN PAGE TITLE & BREADCRUMB-->   
+            <h3 class="page-title">
+            	Randevuyu Sil
+              
+            </h3>
+            
+            <!-- END PAGE TITLE & BREADCRUMB-->
+          </div>
+        </div>
+	<div id="page" class="dashboard">
+    <div class="row-fluid">
+     	<div class="span12">
+     		<div class="widget">
+            <div class="widget-title">
+               <h4><i class="icon-reorder"></i></h4>
+               <span class="tools">
+               
+               </span>							
+            </div>
+            <div class="widget-body form">
+               <!-- BEGIN FORM-->
+               <%= simple_form_for @user_appointment, url: admin_user_appointment_path(@user_appointment.id), :method => :DELETE, class: "form-horizontal" do |f| %>
+               		
+
+
+               		<h2>Silmek istediğiniz randevu: <%= @user_appointment.full_name %></h2>
+               		<h3>Emin misiniz?</h3>
+               		<div class="form-actions">
+									  <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+									     Sil
+									  <% end %>
+									  <%= link_to "Geri Dön", { action: "index" }, :class => "btn btn-warning" %>
+									   <!-- <button type="button" class="btn">Cancel</button> -->
+									</div>
+               <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

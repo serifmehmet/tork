@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
 
   	else
       sign_out(user)
+      flash[:alert] = "Bu sayfaya erişim yetkiniz yok."
   		redirect_to(:controller => "admin", :action => "login")
   	end
   end

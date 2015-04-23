@@ -29,7 +29,11 @@ Rails.application.routes.draw do
     #Make Types
     resources :make_types, only: [:index, :new, :create, :edit, :update, :destroy]
     get 'delete_make_type/:id', :to => 'make_types#delete', as: :delete_make_type
-    
+
+    #User Appointments
+    resources :user_appointments, only: [:index, :edit, :update, :destroy]
+    get 'delete_user_appointment/:id', :to => 'user_appointments#delete', as: :delete_user_appointment
+
   end
 
   # devise_for :users, controllers: { sessions: "users/sessions" }

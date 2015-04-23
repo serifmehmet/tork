@@ -34,6 +34,7 @@ class Admin::UserAppointmentsController < ApplicationController
 
   private
     def user_appointment_params
-      params.require(:user_appointment).permit(:first_name, :last_naem, :email, :address, :phone_number, :make_year, :brand_id, :brand_make_id)
+      params.require(:user_appointment).permit(:first_name, :last_name, :email, :address, :phone_number, :care_operation, 
+        :brand_id, :brand_make_id)
     end
 end

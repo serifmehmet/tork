@@ -62,10 +62,10 @@
 													<td class="hidden-phone"><%= user_appointment.brand_make.make_name %></td>
 													<td class="hidden-phone"><%= user_appointment.care_operation %></td>
 													<td class="center">
-														<%= link_to edit_admin_user_appointment_path(make_type.id), :class => 'icon huge' do %>
+														<%= link_to edit_admin_user_appointment_path(user_appointment.id), :class => 'icon huge' do %>
 															<i class="fa fa-pencil fa-fw"></i>
 														<% end %>
-														<%= link_to admin_delete_user_appointment_path(make_type.id), :class => 'icon huge' do %>
+														<%= link_to admin_delete_user_appointment_path(user_appointment.id), :class => 'icon huge' do %>
 															<i class="fa fa-remove fa-fw"></i>
 														<% end %>
 														

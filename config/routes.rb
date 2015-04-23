@@ -34,6 +34,10 @@ Rails.application.routes.draw do
     resources :user_appointments, only: [:index, :edit, :update, :destroy]
     get 'delete_user_appointment/:id', :to => 'user_appointments#delete', as: :delete_user_appointment
 
+    #User Proposal Forms
+    resources :user_proposal_forms, only: [:index, :edit, :update, :destroy]
+    get 'delete_user_proposal/:id', :to => 'user_proposals#delete', as: :delete_user_proposal
+
   end
 
   # devise_for :users, controllers: { sessions: "users/sessions" }

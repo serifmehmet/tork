@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150423181410) do
+ActiveRecord::Schema.define(version: 20150423211426) do
 
   create_table "brand_makes", force: :cascade do |t|
     t.integer  "brand_id",         limit: 4
@@ -86,20 +86,19 @@ ActiveRecord::Schema.define(version: 20150423181410) do
   end
 
   create_table "user_proposal_forms", force: :cascade do |t|
-    t.string   "form_no",           limit: 255
-    t.string   "vehicle_info",      limit: 255
-    t.string   "vehicle_situation", limit: 255
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
-    t.string   "email",             limit: 255,   null: false
-    t.string   "first_name",        limit: 255,   null: false
-    t.string   "last_name",         limit: 255,   null: false
-    t.integer  "brand_id",          limit: 4
-    t.integer  "brand_make_id",     limit: 4
-    t.string   "phone_number",      limit: 20,    null: false
-    t.text     "care_operation",    limit: 65535
-    t.string   "given_cost",        limit: 20
-    t.boolean  "is_accepted",       limit: 1
+    t.string   "form_no",              limit: 255
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+    t.string   "email",                limit: 255,   null: false
+    t.string   "first_name",           limit: 255,   null: false
+    t.string   "last_name",            limit: 255,   null: false
+    t.integer  "brand_id",             limit: 4
+    t.integer  "brand_make_id",        limit: 4
+    t.string   "phone_number",         limit: 20,    null: false
+    t.text     "care_operation",       limit: 65535
+    t.string   "given_cost",           limit: 20
+    t.boolean  "is_accepted",          limit: 1
+    t.text     "proposal_description", limit: 65535
   end
 
   add_index "user_proposal_forms", ["form_no"], name: "index_user_proposal_forms_on_form_no", using: :btree

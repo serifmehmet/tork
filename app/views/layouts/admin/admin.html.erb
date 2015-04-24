@@ -108,6 +108,11 @@
 						<i class="fa fa-user fa-fw"></i> Kullanıcılar
 					<% end %>
 				</li>
+				<li <%= 'class=active' if current_page?(controller: 'services') %> >
+					<%= link_to admin_services_path do %>
+						<i class="fa fa-user fa-fw"></i> Hizmetler
+					<% end %>
+				</li>
 				<li <%= 'class=active' if current_page?(controller: 'user_proposal_forms') %>>
 					<%= link_to admin_user_proposals_path do %>
 						<i class="fa fa-tasks fa-fw"></i> Teklifler

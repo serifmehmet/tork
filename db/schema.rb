@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150423211426) do
+ActiveRecord::Schema.define(version: 20150423230838) do
 
   create_table "brand_makes", force: :cascade do |t|
     t.integer  "brand_id",         limit: 4
@@ -54,6 +54,14 @@ ActiveRecord::Schema.define(version: 20150423211426) do
   end
 
   add_index "pages", ["page_name"], name: "index_pages_on_page_name", using: :btree
+
+  create_table "services", force: :cascade do |t|
+    t.string   "service_name",        limit: 50,    null: false
+    t.text     "service_description", limit: 65535, null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.string   "meta_keywords",       limit: 100
+  end
 
   create_table "user_appointments", force: :cascade do |t|
     t.string   "first_name",     limit: 20,    null: false

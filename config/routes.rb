@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
  
+  
+
   devise_for :users
   devise_scope :user do 
     # get 'admin/login', :to => "devise/sessions#new", as: :login
@@ -37,6 +39,10 @@ Rails.application.routes.draw do
     #User Proposal Forms
     resources :user_proposal_forms, only: [:index, :edit, :update, :destroy]
     get 'delete_user_proposal/:id', :to => 'user_proposals#delete', as: :delete_user_proposal
+
+    #Services
+    resources :services, only: [:index, :new, :create, :edit, :update, :destroy]
+    get 'delete_service/:id', :to => 'services#delete', as: :delete_service    
 
   end
 

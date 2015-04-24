@@ -41,12 +41,8 @@
       <%= f.association :brand_make ,label_method: :make_name, value_method: :id, input_html: { class: "span6", id: "input6"}, label: "Model Adı" %>
    </div>
 </div>
-<div class="control-group">
-   <!-- <label class="control-label" for="input1">Adı</label> -->
-   <div class="controls">
-    <%= f.input :care_operation, input_html: { class: "span6", id: "inputRemarks", rows: "3"}, as: :text, label: "Adres" %>
-   </div>
-</div>
+
+
 
 <div class="control-group">
    <!-- <label class="control-label" for="input1">Adı</label> -->
@@ -54,7 +50,12 @@
       <%= f.input :given_cost, input_html: { class: "span6", id: "input7"}, label: "Verilen Teklif" %>
    </div>
 </div>
-
+<div class="control-group">
+   <!-- <label class="control-label" for="input1">Adı</label> -->
+   <div class="controls">
+    <%= f.input :proposal_description, input_html: { class: "span6", id: "inputRemarks", rows: "3"}, as: :text, label: "Adres" %>
+   </div>
+</div>
 
 
 

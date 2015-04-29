@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150423230838) do
+ActiveRecord::Schema.define(version: 20150429093034) do
 
   create_table "brand_makes", force: :cascade do |t|
     t.integer  "brand_id",         limit: 4
@@ -33,6 +33,16 @@ ActiveRecord::Schema.define(version: 20150423230838) do
   end
 
   add_index "brands", ["brand_name"], name: "index_brands_on_brand_name", using: :btree
+
+  create_table "images", force: :cascade do |t|
+    t.integer  "f_id",       limit: 4
+    t.string   "caption",    limit: 100
+    t.integer  "image_type", limit: 4,   null: false
+    t.integer  "position",   limit: 4
+    t.string   "image",      limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "make_engine_types", force: :cascade do |t|
     t.integer  "brand_make_id",  limit: 4

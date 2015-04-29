@@ -3,6 +3,8 @@ Rails.application.routes.draw do
  
   
 
+  root to: "home#index"
+
   devise_for :users
   devise_scope :user do 
     # get 'admin/login', :to => "devise/sessions#new", as: :login

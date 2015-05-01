@@ -12,6 +12,52 @@
    </div>
 </div>
 <div class="control-group">
+   <%= simple_fields_for :images do |image| %>
+     
+     
+     <div class="controls">
+        <label class="control-label">Hizmet Büyük Resimi</label> 
+        <div class="fileupload fileupload-new" data-provides="fileupload">
+          <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;"><img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt=""/></div>
+          <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+          <div>
+            <span class="btn btn-file"><span class="fileupload-new">Resim Seç</span><span class="fileupload-exists">Değiştir</span>
+              <%= image.input :image, input_html: { type: :file, class: "default"}, wrapper: false, label: false %>
+              <%= image.input :image_type, :as => "hidden", :input_html => { :value => :title } %>
+            </span>
+            <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Sil</a>
+          </div>
+        </div>
+
+        
+     </div>
+   <% end %>
+</div>
+
+<div class="control-group">
+   <%= simple_fields_for :images do |image| %>
+     
+     
+     <div class="controls">
+        <label class="control-label">Hizmet İkonu</label> 
+        <div class="fileupload fileupload-new" data-provides="fileupload">
+          <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;"><img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt=""/></div>
+          <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+          <div>
+            <span class="btn btn-file"><span class="fileupload-new">Resim Seç</span><span class="fileupload-exists">Değiştir</span>
+              <%= image.input :image, input_html: { type: :file, class: "default", name: "icon_image"}, wrapper: false, label: false %>
+              <%= image.input :image_type, :as => "hidden", :input_html => { :value => :icon, name: "icon_image_type" } %>
+            </span>
+            <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Sil</a>
+          </div>
+        </div>
+
+        
+     </div>
+   <% end %>
+</div>
+
+<div class="control-group">
    <!-- <label class="control-label" for="input2">Soyadı</label> -->
    <div class="controls">
       <%= f.input :meta_keywords, input_html: { class: "span6", id: "input2"}, label: "Anahtar Kelimeler" %>

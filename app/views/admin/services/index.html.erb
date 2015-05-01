@@ -38,7 +38,7 @@
 									<table class="table table-striped table-bordered" id="sample_1">
 										<thead>
 											<tr>
-												
+												<th>Hizmet</th>
 												<th>Hizmet Adı</th>
 												<!-- <th>Hizmet Açıklaması</th> -->
 												<th>Anahtar Kelimeler</th>
@@ -49,7 +49,7 @@
 											<!-- Kullanıcılar Listesini alıyoruz -->
 											<% @services.each do |service| %>
 												<tr class="odd gradeX">
-													
+													<td class="hidden-phone"><%= image_tag service.images.get_icon.first.image_url %></td>
 													<td class="hidden-phone"><%= service.service_name %></td>
 													<!-- <td class="hidden-phone"><%= service.service_description %></td> -->
 													<td class="hidden-phone"><%= service.meta_keywords %></td>

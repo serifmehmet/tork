@@ -8,12 +8,21 @@ class Admin::ServicesController < ApplicationController
 
   def new
   	@service = Service.new
+    @images = @service.images.build
+
   end
 
   def create
     @service = Service.new(service_params)
 
     if @service.save
+      if params[:images]
+        
+          @image = @service.images.create!(:image => params[:images][:image], :imageable_id => @service.id, :image_type => params[:images][:image_type])
+          @icon_image = @service.images.create!(:image => params["icon_image"], :imageable_id => @service.id, :image_type => params["icon_image_type"])
+        
+      end
+      
       flash[:notice] = "Hizmet sayfası başarıyla oluşturuldu!"
       redirect_to admin_services_path
     else
@@ -52,6 +61,7 @@ class Admin::ServicesController < ApplicationController
    private
 
   	def service_params
-      params.require(:service).permit(:service_name, :service_description, :meta_keywords)
+      params.require(:service).permit(:service_name, :service_description, :meta_keywords, 
+        images_attributes: [:id, :imageable_id, :image])
     end
 end

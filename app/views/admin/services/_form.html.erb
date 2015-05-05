@@ -12,13 +12,19 @@
    </div>
 </div>
 <div class="control-group">
-   <%= simple_fields_for :images do |image| %>
+   <%= f.simple_fields_for :images_title do |image| %>
      
      
      <div class="controls">
         <label class="control-label">Hizmet Büyük Resimi</label> 
         <div class="fileupload fileupload-new" data-provides="fileupload">
-          <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;"><img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt=""/></div>
+          <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
+            <% if image.object.nil? %>
+              <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt=""/>
+            <% else %>
+              <%= image_tag image.object.image_url %>
+            <% end %>
+          </div>
           <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
           <div>
             <span class="btn btn-file"><span class="fileupload-new">Resim Seç</span><span class="fileupload-exists">Değiştir</span>
@@ -35,18 +41,24 @@
 </div>
 
 <div class="control-group">
-   <%= simple_fields_for :images do |image| %>
+   <%= f.simple_fields_for :images_icon do |image_icon| %>
      
      
      <div class="controls">
         <label class="control-label">Hizmet İkonu</label> 
         <div class="fileupload fileupload-new" data-provides="fileupload">
-          <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;"><img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt=""/></div>
+          <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
+           <% if image_icon.object.nil? %>
+              <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt=""/>
+            <% else %>
+              <%= image_tag image_icon.object.image_url %>
+            <% end %>
+          </div>
           <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
           <div>
             <span class="btn btn-file"><span class="fileupload-new">Resim Seç</span><span class="fileupload-exists">Değiştir</span>
-              <%= image.input :image, input_html: { type: :file, class: "default", name: "icon_image"}, wrapper: false, label: false %>
-              <%= image.input :image_type, :as => "hidden", :input_html => { :value => :icon, name: "icon_image_type" } %>
+              <%= image_icon.input :image, input_html: { type: :file, class: "default",}, wrapper: false, label: false %>
+              <%= image_icon.input :image_type, :as => "hidden", :input_html => { :value => :icon } %>
             </span>
             <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Sil</a>
           </div>
